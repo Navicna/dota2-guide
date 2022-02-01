@@ -1,19 +1,42 @@
+import {useNavigation} from '@react-navigation/core';
+
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {DotaHeroesInterfaceUpdated} from '../../interfaces/heroes.interfaces';
+import {fetchHeroImage} from '../../services/heroes.services';
 import {getHeroImageProportion} from '../../utils/Metrics';
+import {defaultShadow} from '../../utils/Style';
 
 const PICTURE_WIDTH = getHeroImageProportion();
 
-export function HeroPicture({heroPath}: {heroPath: string}) {
+export function HeroPicture({
+  heroDetails,
+}: {
+  heroDetails: DotaHeroesInterfaceUpdated;
+}) {
+  const {navigate} = useNavigation();
+  const heroImage = fetchHeroImage(heroDetails.heroPath);
+
+  const heroDetailsUpdated = {
+    ...heroDetails,
+    heroImage,
+  };
+
+  function handleNavigate() {
+    navigate('HeroDetails' as never, {heroDetailsUpdated} as never);
+  }
+
   return (
-    <View style={styles.view}>
-      <Image
-        source={{
-          uri: `https://cdn.dota2.com/apps/dota2/images/heroes/${heroPath}_full.png`,
-        }}
-        style={styles.image}
-      />
-    </View>
+    <TouchableOpacity onPress={handleNavigate}>
+      <View style={styles.view}>
+        <Image
+          source={{
+            uri: heroImage,
+          }}
+          style={styles.image}
+        />
+      </View>
+    </TouchableOpacity>
   );
 }
 
@@ -26,14 +49,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   view: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
+    ...defaultShadow,
   },
 });

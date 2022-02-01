@@ -18,7 +18,7 @@ export function HeroesListScreen() {
         data={dotaHeroes}
         numColumns={3}
         renderItem={({item}) => {
-          return <HeroPicture heroPath={item.heroPath} />;
+          return <HeroPicture heroDetails={item} />;
         }}
         keyExtractor={item => item.id}
       />

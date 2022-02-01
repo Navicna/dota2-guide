@@ -16,4 +16,5 @@ export interface DotaHeroesInterfaceUpdated {
   attackType: string;
   roles: string[];
   legs: number;
+  heroImage?: string;
 }
