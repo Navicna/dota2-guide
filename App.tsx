@@ -3,7 +3,7 @@ import {SafeAreaView, StatusBar} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {DotaGuideProvider} from './src/context/DotaGuideContext';
-import {HeroesListScreen} from './src/screens/HeroesListScreen';
+import AppNavigation from './src/navigation';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         <StatusBar barStyle="light-content" />
       </SafeAreaView>
       <DotaGuideProvider>
-        <HeroesListScreen />
+        <AppNavigation />
       </DotaGuideProvider>
     </>
   );
