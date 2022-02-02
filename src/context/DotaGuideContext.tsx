@@ -5,6 +5,7 @@ import {
 } from '../interfaces/heroes.interfaces';
 
 import {fetchDotaHeroes} from '../services/heroes.services';
+import {handleHeroComplexity} from '../utils/String';
 
 interface IDotaGuideContext {
   dotaHeroes: any;
@@ -36,6 +37,9 @@ const DotaGuideProvider: React.FC<{
         heroName: localized_name,
         primaryAttr: primary_attr,
         roles,
+        heroComplexity: handleHeroComplexity(
+          name.replace('npc_dota_hero_', ''),
+        ),
       }),
     );
   }
