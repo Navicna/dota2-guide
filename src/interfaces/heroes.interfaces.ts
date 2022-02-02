@@ -17,4 +17,11 @@ export interface DotaHeroesInterfaceUpdated {
   roles: string[];
   legs: number;
   heroImage?: string;
+  heroComplexity: number;
 }
+
+export type HeroSummaryProps = {
+  title?: string;
+  shortDescription?: string;
+  description?: string;
+};

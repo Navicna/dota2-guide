@@ -9,11 +9,11 @@ import {defaultShadow} from '../../utils/Style';
 
 const PICTURE_WIDTH = getHeroImageProportion();
 
-export function HeroPicture({
-  heroDetails,
-}: {
+type HeroPictureProps = {
   heroDetails: DotaHeroesInterfaceUpdated;
-}) {
+};
+
+export function HeroPicture({heroDetails}: HeroPictureProps) {
   const {navigate} = useNavigation();
   const heroImage = fetchHeroImage(heroDetails.heroPath);
 
