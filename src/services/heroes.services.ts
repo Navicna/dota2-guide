@@ -15,3 +15,7 @@ export const fetchHeroAttribute = (attr: string) => {
     attr,
   )}.png`;
 };
+
+export const fetchAttributesImage = (attr: string) => {
+  return `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/herogrid/filter-${attr}-active.png`;
+};

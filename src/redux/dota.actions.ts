@@ -8,3 +8,12 @@ export function dispatchHeroComplexityFilter(complexityFilter: number) {
     },
   };
 }
+
+export function dispatchHeroAttributeFilter(attributeFilter: string) {
+  return {
+    type: DotaReduxEnum.ATTRIBUTE_FILTER,
+    payload: {
+      attributeFilter,
+    },
+  };
+}
