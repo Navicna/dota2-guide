@@ -2,10 +2,12 @@ import {DotaReduxEnum} from './dota.types';
 
 type InitialState = {
   complexityFilter: number;
+  attributeFilter: string;
 };
 
 const INITIAL_STATE = {
   complexityFilter: 0,
+  attributeFilter: '',
 };
 
 type Action = {
@@ -20,6 +22,8 @@ export default function dotaReducer(
   switch (action.type) {
     case DotaReduxEnum.COMPLEXITY_FILTER:
       return {...state, complexityFilter: action.payload?.complexityFilter};
+    case DotaReduxEnum.ATTRIBUTE_FILTER:
+      return {...state, attributeFilter: action.payload?.attributeFilter};
     default:
       return state;
   }

@@ -55,7 +55,11 @@ export function HeroComplexityFilter() {
 }
 
 const styles = StyleSheet.create({
-  heroComplexityContainer: {flexDirection: 'row'},
+  heroComplexityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   rhomb: {
     marginRight: 12,
     width: 16,

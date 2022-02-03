@@ -1,54 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import React from 'react';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {useSelector} from 'react-redux';
+
 import {HeroListHeader} from '../../components/HeroListHeader';
 import {HeroPicture} from '../../components/HeroPicture';
-import {useDotaGuide} from '../../context/DotaGuideContext';
-import {DotaHeroesInterfaceUpdated} from '../../interfaces/heroes.interfaces';
-import {getHeroComplexitySearchFilter} from '../../redux/dota.selectors';
+
+import {useSearchHeroFilters} from '../../hooks/useSearchHeroFilters';
+
 import {LoadingScreen} from '../LoadingScreen';
 
 export function HeroesListScreen() {
-  const {dotaHeroes, dotaHeroesLoading} = useDotaGuide();
-  const [searchText, setSearchText] = useState('');
-  const [filteredDotaHeroes, setFilteredDotaHeroes] = useState(dotaHeroes);
-  const heroComplexitySearchFilter = useSelector(getHeroComplexitySearchFilter);
-
-  useEffect(() => {
-    const filterByComplexity = dotaHeroes.filter(
-      ({heroComplexity}: DotaHeroesInterfaceUpdated) => {
-        return heroComplexitySearchFilter === heroComplexity;
-      },
-    );
-    if (heroComplexitySearchFilter > 0) {
-      setFilteredDotaHeroes(filterByComplexity);
-    } else {
-      setFilteredDotaHeroes(dotaHeroes);
-    }
-  }, [heroComplexitySearchFilter]);
-
-  const handleSearchHeroes = (text: string) => {
-    if (text) {
-      const filteredHeroes = dotaHeroes.filter(
-        ({heroName, heroComplexity}: DotaHeroesInterfaceUpdated) => {
-          if (heroComplexitySearchFilter > 0) {
-            return (
-              heroName.toLowerCase().indexOf(text.toLowerCase()) > -1 ||
-              heroComplexitySearchFilter === heroComplexity
-            );
-          }
-          return heroName.toLowerCase().indexOf(text.toLowerCase()) > -1;
-        },
-      );
-
-      setFilteredDotaHeroes(filteredHeroes);
-      setSearchText(text);
-    } else {
-      setFilteredDotaHeroes(dotaHeroes);
-      setSearchText(text);
-    }
-  };
+  const {
+    filteredDotaHeroes,
+    dotaHeroesLoading,
+    searchText,
+    handleSearchHeroes,
+  } = useSearchHeroFilters();
 
   if (dotaHeroesLoading) {
     return <LoadingScreen />;
@@ -57,13 +24,20 @@ export function HeroesListScreen() {
   return (
     <View style={styles.screen}>
       <FlatList
-        data={filteredDotaHeroes.length === 0 ? dotaHeroes : filteredDotaHeroes}
+        data={filteredDotaHeroes}
         numColumns={3}
         ListHeaderComponent={
           <HeroListHeader
             searchText={searchText}
             onChangeText={text => handleSearchHeroes(text)}
           />
+        }
+        ListEmptyComponent={
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>
+              {'Nenhum herói\n\ncorresponde aos filtros'}
+            </Text>
+          </View>
         }
         renderItem={({item}) => {
           return <HeroPicture heroDetails={item} />;
@@ -82,4 +56,6 @@ const styles = StyleSheet.create({
     paddingBottom: 48,
     flex: 1,
   },
+  emptyContainer: {flex: 1, alignItems: 'center'},
+  emptyText: {color: 'white', textAlign: 'center', fontSize: 16},
 });

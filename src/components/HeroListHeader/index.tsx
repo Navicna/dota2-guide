@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {screenProportion} from '../../utils/Metrics';
+import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
 
 import {HeroComplexityFilter} from '../HeroComplexityFilter';
 
@@ -16,7 +18,10 @@ export function HeroListHeader({
 }: HeroListHeaderProps) {
   return (
     <View style={styles.headerContainer}>
-      <HeroComplexityFilter />
+      <View style={styles.copleFiltersContainer}>
+        <HeroComplexityFilter />
+        <HeroAttributeFilter />
+      </View>
 
       {/* Hero Search Component */}
       <View style={styles.searchContainer}>
@@ -41,9 +46,16 @@ export function HeroListHeader({
 }
 
 const styles = StyleSheet.create({
+  copleFiltersContainer: {
+    flexDirection: 'row',
+    width: 230,
+    justifyContent: 'space-around',
+  },
   headerContainer: {
     alignItems: 'center',
     paddingTop: 16,
+    height: screenProportion('HEIGHT', 0.18),
+    justifyContent: 'center',
   },
   title: {
     color: 'white',
