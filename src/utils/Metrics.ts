@@ -11,7 +11,7 @@ const {width, height} = Dimensions.get('screen');
 export const screenWidth =
   Dimensions.get('screen').width - LATERAL_MARGIN * NUMBER_OF_SIDES;
 
-export function getHeroImageProportion(numColums = 3) {
+export function getHeroImageProportion(numColums = 2) {
   return (
     Dimensions.get('screen').width / numColums - PADDING_VALUE * NUMBER_OF_SIDES
   );

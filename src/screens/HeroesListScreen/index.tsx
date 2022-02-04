@@ -25,7 +25,8 @@ export function HeroesListScreen() {
     <View style={styles.screen}>
       <FlatList
         data={filteredDotaHeroes}
-        numColumns={3}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <HeroListHeader
             searchText={searchText}
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.darker,
     paddingLeft: 8,
-    paddingBottom: 48,
     flex: 1,
   },
   emptyContainer: {flex: 1, alignItems: 'center'},

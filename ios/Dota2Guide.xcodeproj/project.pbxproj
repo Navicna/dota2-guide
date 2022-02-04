@@ -11,6 +11,40 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2191074627AD7ABC00BA04F7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073827AD79FF00BA04F7 /* Montserrat-Regular.ttf */; };
+		2191074727AD7ABC00BA04F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073C27AD7A0000BA04F7 /* OpenSans-Bold.ttf */; };
+		2191074827AD7ABC00BA04F7 /* Cardo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073D27AD7A0000BA04F7 /* Cardo-Bold.ttf */; };
+		2191074927AD7ABC00BA04F7 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073B27AD7A0000BA04F7 /* OpenSans-Light.ttf */; };
+		2191074A27AD7ABC00BA04F7 /* Cardo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073A27AD7A0000BA04F7 /* Cardo-Regular.ttf */; };
+		2191074B27AD7ABC00BA04F7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073F27AD7A0000BA04F7 /* OpenSans-Regular.ttf */; };
+		2191074C27AD7ABC00BA04F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191074027AD7A0000BA04F7 /* OpenSans-SemiBold.ttf */; };
+		2191074D27AD7ABC00BA04F7 /* Cardo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073E27AD7A0000BA04F7 /* Cardo-Italic.ttf */; };
+		2191074E27AD7ABC00BA04F7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073927AD79FF00BA04F7 /* Montserrat-Bold.ttf */; };
+		2191075127AD7AF500BA04F7 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060327AA210D00BA04F7 /* AntDesign.ttf */; };
+		2191075227AD7AF500BA04F7 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060627AA210D00BA04F7 /* Entypo.ttf */; };
+		2191075327AD7AF500BA04F7 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060A27AA210D00BA04F7 /* EvilIcons.ttf */; };
+		2191075427AD7AF500BA04F7 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060127AA210D00BA04F7 /* Feather.ttf */; };
+		2191075527AD7AF500BA04F7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060C27AA210D00BA04F7 /* FontAwesome.ttf */; };
+		2191075627AD7AF500BA04F7 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060D27AA210D00BA04F7 /* FontAwesome5_Brands.ttf */; };
+		2191075727AD7AF500BA04F7 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060F27AA210D00BA04F7 /* FontAwesome5_Regular.ttf */; };
+		2191075827AD7AF500BA04F7 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060427AA210D00BA04F7 /* FontAwesome5_Solid.ttf */; };
+		2191075927AD7AF500BA04F7 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060927AA210D00BA04F7 /* Fontisto.ttf */; };
+		2191075A27AD7AF500BA04F7 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060027AA210D00BA04F7 /* Foundation.ttf */; };
+		2191075B27AD7AF500BA04F7 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060727AA210D00BA04F7 /* Ionicons.ttf */; };
+		2191075C27AD7AF500BA04F7 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060227AA210D00BA04F7 /* MaterialCommunityIcons.ttf */; };
+		2191075D27AD7AF500BA04F7 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060527AA210D00BA04F7 /* MaterialIcons.ttf */; };
+		2191075E27AD7AF500BA04F7 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060B27AA210D00BA04F7 /* Octicons.ttf */; };
+		2191075F27AD7AF500BA04F7 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060E27AA210D00BA04F7 /* SimpleLineIcons.ttf */; };
+		2191076027AD7AF500BA04F7 /* Cardo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073D27AD7A0000BA04F7 /* Cardo-Bold.ttf */; };
+		2191076127AD7AF500BA04F7 /* Cardo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073E27AD7A0000BA04F7 /* Cardo-Italic.ttf */; };
+		2191076227AD7AF500BA04F7 /* Cardo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073A27AD7A0000BA04F7 /* Cardo-Regular.ttf */; };
+		2191076327AD7AF500BA04F7 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073927AD79FF00BA04F7 /* Montserrat-Bold.ttf */; };
+		2191076427AD7AF500BA04F7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073827AD79FF00BA04F7 /* Montserrat-Regular.ttf */; };
+		2191076527AD7AF500BA04F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073C27AD7A0000BA04F7 /* OpenSans-Bold.ttf */; };
+		2191076627AD7AF500BA04F7 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073B27AD7A0000BA04F7 /* OpenSans-Light.ttf */; };
+		2191076727AD7AF500BA04F7 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073F27AD7A0000BA04F7 /* OpenSans-Regular.ttf */; };
+		2191076827AD7AF500BA04F7 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191074027AD7A0000BA04F7 /* OpenSans-SemiBold.ttf */; };
+		2191076927AD7AF500BA04F7 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191060827AA210D00BA04F7 /* Zocial.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-Dota2Guide.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-Dota2Guide.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-Dota2Guide-Dota2GuideTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Dota2Guide-Dota2GuideTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -53,6 +87,15 @@
 		2191060D27AA210D00BA04F7 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		2191060E27AA210D00BA04F7 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		2191060F27AA210D00BA04F7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		2191073827AD79FF00BA04F7 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../android/app/src/main/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		2191073927AD79FF00BA04F7 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../android/app/src/main/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		2191073A27AD7A0000BA04F7 /* Cardo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cardo-Regular.ttf"; path = "../android/app/src/main/assets/fonts/Cardo-Regular.ttf"; sourceTree = "<group>"; };
+		2191073B27AD7A0000BA04F7 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../android/app/src/main/assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		2191073C27AD7A0000BA04F7 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../android/app/src/main/assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		2191073D27AD7A0000BA04F7 /* Cardo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cardo-Bold.ttf"; path = "../android/app/src/main/assets/fonts/Cardo-Bold.ttf"; sourceTree = "<group>"; };
+		2191073E27AD7A0000BA04F7 /* Cardo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cardo-Italic.ttf"; path = "../android/app/src/main/assets/fonts/Cardo-Italic.ttf"; sourceTree = "<group>"; };
+		2191073F27AD7A0000BA04F7 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../android/app/src/main/assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		2191074027AD7A0000BA04F7 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../android/app/src/main/assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-Dota2Guide.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dota2Guide.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-Dota2Guide-Dota2GuideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota2Guide-Dota2GuideTests.debug.xcconfig"; path = "Target Support Files/Pods-Dota2Guide-Dota2GuideTests/Pods-Dota2Guide-Dota2GuideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Dota2Guide/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,6 +174,15 @@
 				2191060527AA210D00BA04F7 /* MaterialIcons.ttf */,
 				2191060B27AA210D00BA04F7 /* Octicons.ttf */,
 				2191060E27AA210D00BA04F7 /* SimpleLineIcons.ttf */,
+				2191073D27AD7A0000BA04F7 /* Cardo-Bold.ttf */,
+				2191073E27AD7A0000BA04F7 /* Cardo-Italic.ttf */,
+				2191073A27AD7A0000BA04F7 /* Cardo-Regular.ttf */,
+				2191073927AD79FF00BA04F7 /* Montserrat-Bold.ttf */,
+				2191073827AD79FF00BA04F7 /* Montserrat-Regular.ttf */,
+				2191073C27AD7A0000BA04F7 /* OpenSans-Bold.ttf */,
+				2191073B27AD7A0000BA04F7 /* OpenSans-Light.ttf */,
+				2191073F27AD7A0000BA04F7 /* OpenSans-Regular.ttf */,
+				2191074027AD7A0000BA04F7 /* OpenSans-SemiBold.ttf */,
 				2191060827AA210D00BA04F7 /* Zocial.ttf */,
 			);
 			name = Fonts;
@@ -275,6 +327,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2191075127AD7AF500BA04F7 /* AntDesign.ttf in Resources */,
+				2191075227AD7AF500BA04F7 /* Entypo.ttf in Resources */,
+				2191075327AD7AF500BA04F7 /* EvilIcons.ttf in Resources */,
+				2191075427AD7AF500BA04F7 /* Feather.ttf in Resources */,
+				2191075527AD7AF500BA04F7 /* FontAwesome.ttf in Resources */,
+				2191075627AD7AF500BA04F7 /* FontAwesome5_Brands.ttf in Resources */,
+				2191075727AD7AF500BA04F7 /* FontAwesome5_Regular.ttf in Resources */,
+				2191075827AD7AF500BA04F7 /* FontAwesome5_Solid.ttf in Resources */,
+				2191075927AD7AF500BA04F7 /* Fontisto.ttf in Resources */,
+				2191075A27AD7AF500BA04F7 /* Foundation.ttf in Resources */,
+				2191075B27AD7AF500BA04F7 /* Ionicons.ttf in Resources */,
+				2191075C27AD7AF500BA04F7 /* MaterialCommunityIcons.ttf in Resources */,
+				2191075D27AD7AF500BA04F7 /* MaterialIcons.ttf in Resources */,
+				2191075E27AD7AF500BA04F7 /* Octicons.ttf in Resources */,
+				2191075F27AD7AF500BA04F7 /* SimpleLineIcons.ttf in Resources */,
+				2191076027AD7AF500BA04F7 /* Cardo-Bold.ttf in Resources */,
+				2191076127AD7AF500BA04F7 /* Cardo-Italic.ttf in Resources */,
+				2191076227AD7AF500BA04F7 /* Cardo-Regular.ttf in Resources */,
+				2191076327AD7AF500BA04F7 /* Montserrat-Bold.ttf in Resources */,
+				2191076427AD7AF500BA04F7 /* Montserrat-Regular.ttf in Resources */,
+				2191076527AD7AF500BA04F7 /* OpenSans-Bold.ttf in Resources */,
+				2191076627AD7AF500BA04F7 /* OpenSans-Light.ttf in Resources */,
+				2191076727AD7AF500BA04F7 /* OpenSans-Regular.ttf in Resources */,
+				2191076827AD7AF500BA04F7 /* OpenSans-SemiBold.ttf in Resources */,
+				2191076927AD7AF500BA04F7 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +359,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2191074927AD7ABC00BA04F7 /* OpenSans-Light.ttf in Resources */,
+				2191074C27AD7ABC00BA04F7 /* OpenSans-SemiBold.ttf in Resources */,
+				2191074827AD7ABC00BA04F7 /* Cardo-Bold.ttf in Resources */,
+				2191074627AD7ABC00BA04F7 /* Montserrat-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				2191074727AD7ABC00BA04F7 /* OpenSans-Bold.ttf in Resources */,
+				2191074D27AD7ABC00BA04F7 /* Cardo-Italic.ttf in Resources */,
+				2191074A27AD7ABC00BA04F7 /* Cardo-Regular.ttf in Resources */,
+				2191074B27AD7ABC00BA04F7 /* OpenSans-Regular.ttf in Resources */,
+				2191074E27AD7ABC00BA04F7 /* Montserrat-Bold.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
