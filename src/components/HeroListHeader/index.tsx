@@ -65,10 +65,11 @@ const styles = StyleSheet.create({
   },
   textInput: {
     backgroundColor: '#808080',
-    height: 28,
+    height: 30,
     width: 184,
     paddingLeft: 8,
     color: 'white',
+    paddingVertical: 8,
   },
   searchContainer: {flexDirection: 'row', marginBottom: 16, marginTop: 8},
   iconContainer: {
