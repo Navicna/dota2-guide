@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/EvilIcons';
 import {screenProportion} from '../../utils/Metrics';
 import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
 
@@ -18,6 +18,9 @@ export function HeroListHeader({
 }: HeroListHeaderProps) {
   return (
     <View style={styles.headerContainer}>
+      <Text style={styles.title}>{'FILTRAR HERÓIS'}</Text>
+
+      {/* Complexity and Attributes filter */}
       <View style={styles.copleFiltersContainer}>
         <HeroComplexityFilter />
         <HeroAttributeFilter />
@@ -26,7 +29,7 @@ export function HeroListHeader({
       {/* Hero Search Component */}
       <View style={styles.searchContainer}>
         <View style={styles.iconContainer}>
-          <Icon name="search" size={28} color="#808080" />
+          <Icon name="search" size={32} color="#808080" />
         </View>
         <View style={styles.textInputContainer}>
           <TextInput
@@ -37,7 +40,6 @@ export function HeroListHeader({
             placeholderTextColor="white"
             selectionColor="white"
             style={styles.textInput}
-            placeholder="Escolha o seu Herói"
           />
         </View>
       </View>
@@ -58,10 +60,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
+    marginBottom: 8,
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 24,
-    marginBottom: 4,
+    fontFamily: 'OpenSans-Regular',
+    fontSize: 18,
   },
   textInput: {
     backgroundColor: '#808080',
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {flexDirection: 'row', marginBottom: 16, marginTop: 8},
   iconContainer: {
-    width: 50,
+    width: 40,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
