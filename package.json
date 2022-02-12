@@ -15,6 +15,8 @@
     "@react-navigation/native-stack": "^6.3.0",
     "@types/styled-components": "^5.1.22",
     "axios": "^0.25.0",
+    "lottie-ios": "3.2.3",
+    "lottie-react-native": "^5.0.1",
     "react": "17.0.2",
     "react-native": "0.67.1",
     "react-native-safe-area-context": "^3.3.2",

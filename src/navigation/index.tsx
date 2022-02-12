@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import {HeroesListScreen} from '../screens/HeroesListScreen';
 import {HeroDetailsScreen} from '../screens/HeroDetailsScreen';
+import {SplashScreen} from '../screens/SplashScreen/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +16,8 @@ function AppNavigation() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="HeroList">
+        initialRouteName="Splash">
+        <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="HeroList" component={HeroesListScreen} />
         <Stack.Screen name="HeroDetails" component={HeroDetailsScreen} />
       </Stack.Navigator>
