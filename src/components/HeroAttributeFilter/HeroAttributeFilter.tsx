@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 
 import {dispatchHeroAttributeFilter} from '../../redux/dota.actions';
 import {fetchAttributesImage} from '../../services/heroes.services';
+import {ViewBox} from '../../ui';
+import ImageBox from '../../ui/ImageBox';
 
 const heroAttributesInfo = ['str', 'agi', 'int'];
 
@@ -36,32 +38,23 @@ export function HeroAttributeFilter() {
   }
 
   return (
-    <View style={styles.container}>
+    <ViewBox flexDirection="row">
       {heroAttributesInfo.map((attr, index) => {
         return (
           <TouchableOpacity
             onPress={() => handleHeroAttributeFilter(attr, index)}>
-            <Image
+            <ImageBox
               source={{
                 uri: fetchAttributesImage(attr),
               }}
-              style={[
-                styles.image,
-                {opacity: handleHeroAttributeOpacity(attr, index)},
-              ]}
+              height={30}
+              width={30}
+              opacity={handleHeroAttributeOpacity(attr, index)}
               resizeMode="contain"
             />
           </TouchableOpacity>
         );
       })}
-    </View>
+    </ViewBox>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {flexDirection: 'row'},
-  image: {
-    height: 30,
-    width: 30,
-  },
-});

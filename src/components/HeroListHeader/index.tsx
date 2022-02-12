@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput} from 'react-native';
 
 import Icon from 'react-native-vector-icons/EvilIcons';
+import {TextBox, ViewBox} from '../../ui';
 import {screenProportion} from '../../utils/Metrics';
 import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
 
@@ -17,21 +18,42 @@ export function HeroListHeader({
   searchText,
 }: HeroListHeaderProps) {
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.title}>{'FILTRAR HERÓIS'}</Text>
+    <ViewBox
+      alignItems="center"
+      pt={16}
+      height={screenProportion('HEIGHT', 0.18)}
+      justifyContent="center">
+      <TextBox mb={8} fontSize={20}>
+        {'FILTRAR HERÓIS'}
+      </TextBox>
 
       {/* Complexity and Attributes filter */}
-      <View style={styles.copleFiltersContainer}>
+
+      <ViewBox flexDirection="row" width={230} justifyContent="space-around">
         <HeroComplexityFilter />
         <HeroAttributeFilter />
-      </View>
+      </ViewBox>
 
       {/* Hero Search Component */}
-      <View style={styles.searchContainer}>
-        <View style={styles.iconContainer}>
+      <ViewBox flexDirection="row" marginBottom={16} marginTop={8}>
+        <ViewBox
+          width={40}
+          height={40}
+          alignItems="center"
+          justifyContent="center"
+          borderTopLeftRadius={4}
+          borderBottomLeftRadius={4}
+          backgroundColor="#111111">
           <Icon name="search" size={32} color="#808080" />
-        </View>
-        <View style={styles.textInputContainer}>
+        </ViewBox>
+        <ViewBox
+          width={200}
+          height={40}
+          borderTopRightRadius={4}
+          borderBottomRightRadius={4}
+          bgColor="#111111"
+          justifyContent="center"
+          alignItems="center">
           <TextInput
             onChangeText={onChangeText}
             autoCapitalize="none"
@@ -41,30 +63,13 @@ export function HeroListHeader({
             selectionColor="white"
             style={styles.textInput}
           />
-        </View>
-      </View>
-    </View>
+        </ViewBox>
+      </ViewBox>
+    </ViewBox>
   );
 }
 
 const styles = StyleSheet.create({
-  copleFiltersContainer: {
-    flexDirection: 'row',
-    width: 230,
-    justifyContent: 'space-around',
-  },
-  headerContainer: {
-    alignItems: 'center',
-    paddingTop: 16,
-    height: screenProportion('HEIGHT', 0.18),
-    justifyContent: 'center',
-  },
-  title: {
-    marginBottom: 8,
-    color: 'white',
-    fontFamily: 'OpenSans-Regular',
-    fontSize: 18,
-  },
   textInput: {
     backgroundColor: '#808080',
     height: 30,
@@ -72,24 +77,5 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     color: 'white',
     paddingVertical: 8,
-  },
-  searchContainer: {flexDirection: 'row', marginBottom: 16, marginTop: 8},
-  iconContainer: {
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderTopLeftRadius: 4,
-    borderBottomLeftRadius: 4,
-    backgroundColor: '#111111',
-  },
-  textInputContainer: {
-    width: 200,
-    height: 40,
-    borderTopRightRadius: 4,
-    borderBottomRightRadius: 4,
-    backgroundColor: '#111111',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });

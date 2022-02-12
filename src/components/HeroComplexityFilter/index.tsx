@@ -1,8 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {dispatchHeroComplexityFilter} from '../../redux/dota.actions';
+import {ViewBox} from '../../ui';
 
 export function HeroComplexityFilter() {
   const dispatch = useDispatch();
@@ -36,36 +37,23 @@ export function HeroComplexityFilter() {
   }
 
   return (
-    <View style={styles.heroComplexityContainer}>
+    <ViewBox flexDirection="row" alignItems="center" justifyContent="center">
       {Array(3)
         .fill(null)
         .map((_, i) => (
           <TouchableOpacity onPress={() => handleComplexityHeroFilter(i)}>
-            <View
-              style={[
-                styles.rhomb,
-                {backgroundColor: handleComplexityBgColor(i)},
-              ]}
+            <ViewBox
+              bgColor={handleComplexityBgColor(i)}
+              mr={12}
+              width={16}
+              height={16}
+              borderWidth={1}
+              borderColor="white"
+              transform={[{rotate: '45deg'}]}
               key={i}
             />
           </TouchableOpacity>
         ))}
-    </View>
+    </ViewBox>
   );
 }
-
-const styles = StyleSheet.create({
-  heroComplexityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  rhomb: {
-    marginRight: 12,
-    width: 16,
-    height: 16,
-    borderWidth: 1,
-    borderColor: 'white',
-    transform: [{rotate: '45deg'}],
-  },
-});

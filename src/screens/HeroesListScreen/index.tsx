@@ -1,11 +1,12 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {HeroListHeader} from '../../components/HeroListHeader';
 import {HeroPicture} from '../../components/HeroPicture';
 
 import {useSearchHeroFilters} from '../../hooks/useSearchHeroFilters';
+import {ViewBox, TextBox} from '../../ui';
 
 import {LoadingScreen} from '../LoadingScreen';
 
@@ -22,7 +23,7 @@ export function HeroesListScreen() {
   }
 
   return (
-    <View style={styles.screen}>
+    <ViewBox bgColor={Colors.darker} alignItems="center" pl={8} flex={1}>
       <FlatList
         data={filteredDotaHeroes}
         numColumns={2}
@@ -34,28 +35,17 @@ export function HeroesListScreen() {
           />
         }
         ListEmptyComponent={
-          <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>
+          <ViewBox flex={1} alignItems="center">
+            <TextBox textAlign="center" fontSize={16}>
               {'Nenhum herói\n\ncorresponde aos filtros'}
-            </Text>
-          </View>
+            </TextBox>
+          </ViewBox>
         }
         renderItem={({item}) => {
           return <HeroPicture heroDetails={item} />;
         }}
         keyExtractor={item => item.id}
       />
-    </View>
+    </ViewBox>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    alignItems: 'center',
-    backgroundColor: Colors.darker,
-    paddingLeft: 8,
-    flex: 1,
-  },
-  emptyContainer: {flex: 1, alignItems: 'center'},
-  emptyText: {color: 'white', textAlign: 'center', fontSize: 16},
-});
