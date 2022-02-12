@@ -42,7 +42,12 @@ export function HeroesListScreen() {
           </ViewBox>
         }
         renderItem={({item}) => {
-          return <HeroPicture heroDetails={item} />;
+          return (
+            <HeroPicture
+              heroDetails={item}
+              filteredDotaHeroes={filteredDotaHeroes}
+            />
+          );
         }}
         keyExtractor={item => item.id}
       />

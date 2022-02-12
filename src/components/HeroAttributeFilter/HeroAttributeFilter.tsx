@@ -4,8 +4,7 @@ import {useDispatch} from 'react-redux';
 
 import {dispatchHeroAttributeFilter} from '../../redux/dota.actions';
 import {fetchAttributesImage} from '../../services/heroes.services';
-import {ViewBox} from '../../ui';
-import ImageBox from '../../ui/ImageBox';
+import {ViewBox, ImageBox} from '../../ui';
 
 const heroAttributesInfo = ['str', 'agi', 'int'];
 

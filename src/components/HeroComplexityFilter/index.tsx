@@ -4,13 +4,14 @@ import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {dispatchHeroComplexityFilter} from '../../redux/dota.actions';
 import {ViewBox} from '../../ui';
+import {Diamond} from '../Diamond';
 
 export function HeroComplexityFilter() {
   const dispatch = useDispatch();
   const [complexityFilter, setComplexityFilter] = useState(-1);
   const [isActiveFilter, setIsActiveFilter] = useState(false);
 
-  function handleComplexityBgColor(index: number) {
+  function handleDiamondBgColor(index: number) {
     if (!isActiveFilter) {
       return 'transparent';
     }
@@ -42,16 +43,7 @@ export function HeroComplexityFilter() {
         .fill(null)
         .map((_, i) => (
           <TouchableOpacity onPress={() => handleComplexityHeroFilter(i)}>
-            <ViewBox
-              bgColor={handleComplexityBgColor(i)}
-              mr={12}
-              width={16}
-              height={16}
-              borderWidth={1}
-              borderColor="white"
-              transform={[{rotate: '45deg'}]}
-              key={i}
-            />
+            <Diamond key={i} bgColor={handleDiamondBgColor(i)} />
           </TouchableOpacity>
         ))}
     </ViewBox>

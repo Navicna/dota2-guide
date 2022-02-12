@@ -33,7 +33,7 @@ export type ViewBoxProps = Partial<{
   PositionedMixin &
   FlexMixin;
 
-export const ViewBox = styled.View<ViewBoxProps | any>`
+const ViewBox = styled.View<ViewBoxProps | any>`
   ${({bgColor}) => bgColor && `background-color: ${bgColor}`};
   ${({opacity}) => opacity && `opacity: ${opacity}`};
 
@@ -58,3 +58,5 @@ export const ViewBox = styled.View<ViewBoxProps | any>`
   ${positionedMixin}
   ${flexMixin}
 `;
+
+export default ViewBox;
