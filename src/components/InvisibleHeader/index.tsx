@@ -1,34 +1,21 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
+import {TextBox, ViewBox} from '../../ui';
 
 export function InvisibleHeader() {
   const {goBack} = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <ViewBox position="absolute" top={16} left={16}>
       <TouchableOpacity onPress={goBack}>
-        <View style={styles.arrowContainer}>
-          <Text style={styles.arrow}>Back</Text>
-        </View>
+        <ViewBox
+          borderColor="white"
+          alignItems="center"
+          justifyContent="center">
+          <TextBox fontSize={20}>Back</TextBox>
+        </ViewBox>
       </TouchableOpacity>
-    </View>
+    </ViewBox>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 16,
-    left: 16,
-  },
-  arrow: {
-    color: 'white',
-    fontSize: 20,
-  },
-  arrowContainer: {
-    borderColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
