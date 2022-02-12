@@ -4,6 +4,7 @@ import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {DotaHeroesInterfaceUpdated} from '../../interfaces/heroes.interfaces';
 import {fetchHeroImage} from '../../services/heroes.services';
+import {ImageBox} from '../../ui';
 import {getHeroImageProportion} from '../../utils/Metrics';
 import {defaultShadow} from '../../utils/Style';
 
@@ -11,9 +12,13 @@ const PICTURE_WIDTH = getHeroImageProportion();
 
 type HeroPictureProps = {
   heroDetails: DotaHeroesInterfaceUpdated;
+  filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
 };
 
-export function HeroPicture({heroDetails}: HeroPictureProps) {
+export function HeroPicture({
+  heroDetails,
+  filteredDotaHeroes,
+}: HeroPictureProps) {
   const {navigate} = useNavigation();
   const heroImage = fetchHeroImage(heroDetails.heroPath);
 
@@ -23,17 +28,23 @@ export function HeroPicture({heroDetails}: HeroPictureProps) {
   };
 
   function handleNavigate() {
-    navigate('HeroDetails' as never, {heroDetailsUpdated} as never);
+    navigate(
+      'HeroDetails' as never,
+      {heroDetailsUpdated, filteredDotaHeroes} as never,
+    );
   }
 
   return (
     <TouchableOpacity onPress={handleNavigate}>
       <View style={styles.view}>
-        <Image
+        <ImageBox
           source={{
             uri: heroImage,
           }}
-          style={styles.image}
+          height={PICTURE_WIDTH / 2}
+          width={PICTURE_WIDTH}
+          mb={8}
+          mr={8}
         />
       </View>
     </TouchableOpacity>
@@ -41,13 +52,6 @@ export function HeroPicture({heroDetails}: HeroPictureProps) {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    height: PICTURE_WIDTH / 2,
-    width: PICTURE_WIDTH,
-
-    marginBottom: 8,
-    marginRight: 8,
-  },
   view: {
     ...defaultShadow,
   },

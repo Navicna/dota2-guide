@@ -16,10 +16,10 @@ const fontTypes = (type: FontStyle) =>
     regular: {
       fontFamily: 'OpenSans-Regular',
     },
-    bold: {
+    semi_bold: {
       fontFamily: 'OpenSans-SemiBold',
     },
-    semi_bold: {
+    bold: {
       fontFamily: 'OpenSans-Bold',
     },
   }[type]);
@@ -36,7 +36,7 @@ export type TextProps = Partial<
     PaddingMixin
 >;
 
-export const TextBox = styled.Text<TextProps>`
+const TextBox = styled.Text<TextProps>`
   ${marginMixin}
   ${paddingMixin}
   font-size: ${({fontSize}) => fontSize || FONT_SIZE_PATTERN};
@@ -83,3 +83,5 @@ export const TextWithSepOperator: React.FC<
     </TextBox>
   );
 };
+
+export default TextBox;

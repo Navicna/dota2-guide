@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
-import Icon from 'react-native-vector-icons/EvilIcons';
 import {TextBox, ViewBox} from '../../ui';
+import Icon from '../../ui/icons';
 import {screenProportion} from '../../utils/Metrics';
 import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
 
@@ -44,7 +44,7 @@ export function HeroListHeader({
           borderTopLeftRadius={4}
           borderBottomLeftRadius={4}
           backgroundColor="#111111">
-          <Icon name="search" size={32} color="#808080" />
+          <Icon path="search" size={32} color="#808080" />
         </ViewBox>
         <ViewBox
           width={200}

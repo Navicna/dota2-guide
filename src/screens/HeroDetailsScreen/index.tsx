@@ -1,7 +1,8 @@
 import {RouteProp, useRoute} from '@react-navigation/core';
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Diamond} from '../../components/Diamond';
 import {InvisibleHeader} from '../../components/InvisibleHeader';
 import {
   DotaHeroesInterfaceUpdated,
@@ -11,105 +12,114 @@ import {
   fetchHeroAttribute,
   fetchHeroCharacter,
 } from '../../services/heroes.services';
+import {TextBox, ViewBox} from '../../ui';
+import {ImageBox} from '../../ui';
 import {getHeroSummary} from '../../utils/HeroSummary';
 import {screenWidth} from '../../utils/Metrics';
 import {getAttribute, handleHeroName} from '../../utils/String';
 import {defaultShadow} from '../../utils/Style';
+import {useCarouselHeroesDetails} from '../../hooks/useCarouselHeroesDetails';
+import Icon from '../../ui/icons';
 
 type ScreenProps = {
   params: {
     heroDetailsUpdated: DotaHeroesInterfaceUpdated;
+    filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
   };
 };
 
 export function HeroDetailsScreen() {
   const route = useRoute<RouteProp<ScreenProps, 'params'>>();
-  const heroDetails = route.params.heroDetailsUpdated;
+  const heroDetailsUpdated = route.params.heroDetailsUpdated;
+  const filteredDotaHeroes = route.params.filteredDotaHeroes;
+
+  const {
+    handleHeroCarousel,
+    heroDetails,
+    disableRightChevron,
+    disableLeftChevron,
+  } = useCarouselHeroesDetails(filteredDotaHeroes, heroDetailsUpdated);
+
   const heroCharacter = fetchHeroCharacter(heroDetails.heroPath);
   const heroAttribute = fetchHeroAttribute(heroDetails.primaryAttr);
+
   const heroSummary: HeroSummaryProps | undefined = getHeroSummary(
     heroDetails.heroPath,
   );
   const heroName = handleHeroName(heroDetails.heroName);
 
   return (
-    <View style={styles.container}>
+    <ViewBox bgColor={Colors.darker} flex={1} alignItems="center" pt={32}>
       <InvisibleHeader />
+      {!disableLeftChevron && (
+        <ViewBox position="absolute" left={8} top={150}>
+          <TouchableOpacity
+            disabled={disableLeftChevron}
+            onPress={() => handleHeroCarousel('back')}>
+            <Icon path="chevron_back" size={50} />
+          </TouchableOpacity>
+        </ViewBox>
+      )}
+      {!disableRightChevron && (
+        <ViewBox position="absolute" right={8} top={150}>
+          <TouchableOpacity
+            disabled={disableRightChevron}
+            onPress={() => handleHeroCarousel('forward')}>
+            <Icon path="chevron_forward" size={50} />
+          </TouchableOpacity>
+        </ViewBox>
+      )}
+
       <View style={styles.characterContainer}>
-        <Image
-          style={styles.heroImage}
+        <ImageBox
+          height={300}
+          width={300}
           source={{uri: heroCharacter}}
           resizeMode="contain"
         />
       </View>
-      <View style={styles.containerSummary}>
-        <View style={styles.heroAttributeContainer}>
-          <Image
-            source={{uri: heroAttribute}}
-            style={styles.heroAttributeImage}
-          />
-          <Text style={styles.heroAttributeTitle}>
-            {getAttribute(heroDetails.primaryAttr)?.toUpperCase()}
-          </Text>
-        </View>
-        <Text style={styles.heroName}>{heroName}</Text>
-        {!!heroSummary && (
-          <Text style={styles.heroTitle}>{heroSummary.title}</Text>
-        )}
-        {!!heroSummary && (
-          <Text style={styles.heroDescription}>
-            {heroSummary.shortDescription}
-          </Text>
-        )}
 
-        <Text style={styles.heroDescription}>
-          {`Complexidade do Herói: ${heroDetails.heroComplexity}`}
-        </Text>
-      </View>
-    </View>
+      <ViewBox flex={1} width={screenWidth}>
+        <ViewBox
+          flexDirection="row"
+          alignItems="center"
+          marginBottom={8}
+          marginTop={16}>
+          <ImageBox source={{uri: heroAttribute}} height={30} width={30} />
+          <TextBox fontSize={20} ml={8} fontStyle="semi_bold">
+            {getAttribute(heroDetails.primaryAttr)?.toUpperCase()}
+          </TextBox>
+        </ViewBox>
+        <TextBox fontSize={40} fontStyle="bold">
+          {heroName}
+        </TextBox>
+        {!!heroSummary && (
+          <TextBox fontSize={20} mt={4} color="lightskyblue" fontStyle="bold">
+            {heroSummary.title}
+          </TextBox>
+        )}
+        {!!heroSummary && (
+          <TextBox fontSize={18} mt={8}>
+            {heroSummary.shortDescription}
+          </TextBox>
+        )}
+        <ViewBox flexDirection="row" alignItems="center" mt={8}>
+          <TextBox fontSize={18} mr={16}>
+            Complexidade
+          </TextBox>
+          {Array(heroDetails.heroComplexity)
+            .fill(null)
+            .map((_, i) => (
+              <Diamond key={i} bgColor={'white'} />
+            ))}
+        </ViewBox>
+      </ViewBox>
+    </ViewBox>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.darker,
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: 32,
-  },
-  heroImage: {
-    height: 300,
-    width: 300,
-  },
   characterContainer: {
     ...defaultShadow,
   },
-  heroAttributeContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-    marginTop: 16,
-  },
-  heroAttributeImage: {
-    height: 30,
-    width: 30,
-  },
-  heroAttributeTitle: {color: 'white', fontSize: 20, marginLeft: 8},
-  heroName: {
-    color: 'white',
-    fontSize: 40,
-    fontWeight: 'bold',
-  },
-  heroTitle: {
-    color: 'lightskyblue',
-    fontSize: 20,
-    marginTop: 4,
-    fontWeight: 'bold',
-  },
-  heroDescription: {
-    color: 'white',
-    fontSize: 18,
-    marginTop: 8,
-  },
-  containerSummary: {flex: 1, width: screenWidth},
 });

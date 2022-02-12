@@ -1,3 +1,5 @@
-export * from './TextBox';
-export * from './ViewBox';
-export * from './ImageBox';
+import TextBox from './TextBox';
+import ViewBox from './ViewBox';
+import ImageBox from './ImageBox';
+
+export {TextBox, ViewBox, ImageBox};
