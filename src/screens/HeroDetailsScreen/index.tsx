@@ -31,7 +31,6 @@ export function HeroDetailsScreen() {
     heroDetails.heroPath,
   );
   const heroName = handleHeroName(heroDetails.heroName);
-  console.tron.log({heroDetails});
 
   return (
     <View style={styles.container}>
