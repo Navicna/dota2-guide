@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {TextBox, ViewBox} from '../../ui';
 import Icon from '../../ui/icons';
@@ -17,11 +18,12 @@ export function HeroListHeader({
   onChangeText,
   searchText,
 }: HeroListHeaderProps) {
+  const {top: SAFE_AREA_TOP_VALUE} = useSafeAreaInsets();
   return (
     <ViewBox
       alignItems="center"
-      pt={16}
-      height={screenProportion('HEIGHT', 0.18)}
+      pt={SAFE_AREA_TOP_VALUE}
+      height={screenProportion('HEIGHT', 0.22)}
       justifyContent="center">
       <TextBox mb={8} fontSize={20}>
         {'FILTRAR HERÓIS'}
