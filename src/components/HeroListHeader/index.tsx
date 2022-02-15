@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+
+import {useMusicPlayer} from '../../hooks/useMusicPlayer';
 
 import {TextBox, ViewBox} from '../../ui';
 import Icon from '../../ui/icons';
@@ -19,6 +21,9 @@ export function HeroListHeader({
   searchText,
 }: HeroListHeaderProps) {
   const {top: SAFE_AREA_TOP_VALUE} = useSafeAreaInsets();
+  const {playMusic, stopMusic, setEnabledMusic, enabledMusic} =
+    useMusicPlayer();
+
   return (
     <ViewBox
       alignItems="center"
@@ -28,6 +33,19 @@ export function HeroListHeader({
       <TextBox mb={8} fontSize={20}>
         {'FILTRAR HERÓIS'}
       </TextBox>
+      <ViewBox position="absolute" top={SAFE_AREA_TOP_VALUE + 8} right={16}>
+        <TouchableOpacity
+          onPress={() => {
+            if (enabledMusic) {
+              stopMusic();
+            } else {
+              playMusic();
+            }
+            setEnabledMusic(!enabledMusic);
+          }}>
+          <Icon path={enabledMusic ? 'music_on' : 'music_off'} />
+        </TouchableOpacity>
+      </ViewBox>
 
       {/* Complexity and Attributes filter */}
 
