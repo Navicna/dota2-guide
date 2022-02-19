@@ -6,7 +6,7 @@ import {useMusicPlayer} from '../../hooks/useMusicPlayer';
 
 import {TextBox, ViewBox} from '../../ui';
 import Icon from '../../ui/icons';
-import {screenProportion} from '../../utils/Metrics';
+import {iconMusicPositionHelper, screenProportion} from '../../utils/Metrics';
 import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
 
 import {HeroComplexityFilter} from '../HeroComplexityFilter';
@@ -29,11 +29,15 @@ export function HeroListHeader({
       alignItems="center"
       pt={SAFE_AREA_TOP_VALUE}
       height={screenProportion('HEIGHT', 0.22)}
-      justifyContent="center">
+      justifyContent="center"
+      width={screenProportion('FULL_WIDTH') - 32}>
       <TextBox mb={8} fontSize={20}>
         {'FILTRAR HERÓIS'}
       </TextBox>
-      <ViewBox position="absolute" top={SAFE_AREA_TOP_VALUE + 8} right={16}>
+      <ViewBox
+        position="absolute"
+        top={iconMusicPositionHelper(SAFE_AREA_TOP_VALUE)}
+        right={8}>
         <TouchableOpacity
           onPress={() => {
             if (enabledMusic) {

@@ -18,9 +18,9 @@ export function HeroesListScreen() {
     handleSearchHeroes,
   } = useSearchHeroFilters();
 
-  if (dotaHeroesLoading) {
-    return <LoadingScreen />;
-  }
+  // if (dotaHeroesLoading) {
+  //   return <LoadingScreen />;
+  // }
 
   return (
     <ViewBox bgColor={Colors.darker} alignItems="center" pl={8} flex={1}>
