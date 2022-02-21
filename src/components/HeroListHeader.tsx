@@ -2,21 +2,19 @@ import React from 'react';
 import {StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {useMusicPlayer} from '../../hooks/useMusicPlayer';
+import {useMusicPlayer} from '../hooks/index';
 
-import {TextBox, ViewBox} from '../../ui';
-import Icon from '../../ui/icons';
-import {iconMusicPositionHelper, screenProportion} from '../../utils/Metrics';
-import {HeroAttributeFilter} from '../HeroAttributeFilter/HeroAttributeFilter';
-
-import {HeroComplexityFilter} from '../HeroComplexityFilter';
+import {TextBox, ViewBox} from '../ui';
+import Icon from '../ui/icons';
+import {iconMusicPositionHelper, screenProportion} from '../utils/Metrics';
+import {HeroAttributeFilter, HeroComplexityFilter} from './index';
 
 interface HeroListHeaderProps {
   onChangeText(text: string): void;
   searchText: string;
 }
 
-export function HeroListHeader({
+export default function HeroListHeader({
   onChangeText,
   searchText,
 }: HeroListHeaderProps) {

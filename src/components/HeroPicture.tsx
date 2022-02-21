@@ -1,12 +1,12 @@
 import {useNavigation} from '@react-navigation/core';
 
 import React from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {DotaHeroesInterfaceUpdated} from '../../interfaces/heroes.interfaces';
-import {fetchHeroImage} from '../../services/heroes.services';
-import {ImageBox} from '../../ui';
-import {getHeroImageProportion} from '../../utils/Metrics';
-import {defaultShadow} from '../../utils/Style';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
+import {fetchHeroImage} from '../services/heroes.services';
+import {ImageBox} from '../ui';
+import {getHeroImageProportion} from '../utils/Metrics';
+import {defaultShadow} from '../utils/Style';
 
 const PICTURE_WIDTH = getHeroImageProportion();
 
@@ -15,7 +15,7 @@ type HeroPictureProps = {
   filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
 };
 
-export function HeroPicture({
+export default function HeroPicture({
   heroDetails,
   filteredDotaHeroes,
 }: HeroPictureProps) {

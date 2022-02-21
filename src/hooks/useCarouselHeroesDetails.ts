@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
 
-export function useCarouselHeroesDetails(
+export default function useCarouselHeroesDetails(
   filteredDotaHeroes: DotaHeroesInterfaceUpdated[],
   heroDetailsUpdated: DotaHeroesInterfaceUpdated,
 ) {

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import Sound from 'react-native-sound';
 import {Sounds} from '../assets/sounds';
-export function useMusicPlayer() {
+export default function useMusicPlayer() {
   const [enabledMusic, setEnabledMusic] = useState(true);
   const [musicTheme, setMusicTheme] = useState<Sound | undefined>(
     new Sound(Sounds.dota2Theme, error => {

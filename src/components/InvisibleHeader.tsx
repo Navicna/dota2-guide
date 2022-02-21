@@ -2,10 +2,10 @@ import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {TextBox, ViewBox} from '../../ui';
-import Icon from '../../ui/icons';
+import {TextBox, ViewBox} from '../ui';
+import Icon from '../ui/icons';
 
-export function InvisibleHeader() {
+export default function InvisibleHeader() {
   const {goBack} = useNavigation();
   const {top: SAFE_AREA_TOP_VALUE} = useSafeAreaInsets();
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {ViewBox} from '../../ui';
+import {ViewBox} from '../ui';
 
-export function Diamond({bgColor}: {bgColor: string}) {
+export default function Diamond({bgColor}: {bgColor: string}) {
   return (
     <ViewBox
       bgColor={bgColor}

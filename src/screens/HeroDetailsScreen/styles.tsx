@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Images} from '../../assets/image';
-import {Diamond} from '../../components/Diamond';
-import {InvisibleHeader} from '../../components/InvisibleHeader';
+import {Diamond, InvisibleHeader} from '../../components/index';
+
 import {
   DotaHeroesInterfaceUpdated,
   HeroSummaryProps,

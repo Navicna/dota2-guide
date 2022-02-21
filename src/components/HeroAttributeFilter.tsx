@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 
-import {dispatchHeroAttributeFilter} from '../../redux/dota.actions';
-import {fetchAttributesImage} from '../../services/heroes.services';
-import {ViewBox, ImageBox} from '../../ui';
+import {dispatchHeroAttributeFilter} from '../redux/dota.actions';
+import {fetchAttributesImage} from '../services/heroes.services';
+import {ViewBox, ImageBox} from '../ui';
 
 const heroAttributesInfo = ['str', 'agi', 'int'];
 
-export function HeroAttributeFilter() {
+export default function HeroAttributeFilter() {
   const [isActive, setIsActive] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [filterChoosed, setFilterChoosed] = useState('');

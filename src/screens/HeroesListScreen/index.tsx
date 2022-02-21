@@ -2,10 +2,9 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import {HeroListHeader} from '../../components/HeroListHeader';
-import {HeroPicture} from '../../components/HeroPicture';
+import {HeroListHeader, HeroPicture} from '../../components/index';
 
-import {useSearchHeroFilters} from '../../hooks/useSearchHeroFilters';
+import {useSearchHeroFilters} from '../../hooks/index';
 import {ViewBox, TextBox} from '../../ui';
 
 import {LoadingScreen} from '../LoadingScreen';

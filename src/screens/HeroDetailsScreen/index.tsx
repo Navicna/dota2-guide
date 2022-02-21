@@ -17,11 +17,11 @@ import {getHeroSummary} from '../../utils/HeroSummary';
 
 import {handleHeroName} from '../../utils/String';
 import {defaultShadow} from '../../utils/Style';
-import {useCarouselHeroesDetails} from '../../hooks/useCarouselHeroesDetails';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import * as HDS from './styles';
+import {useCarouselHeroesDetails} from '../../hooks/index';
 
 type ScreenProps = {
   params: {

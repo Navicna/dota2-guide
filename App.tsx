@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {DotaGuideProvider} from './src/context/DotaGuideContext';
-import AppNavigation from './src/navigation';
+import {AppNavigation} from './src/navigation/index';
 
 import {Provider} from 'react-redux';
 import reducer from './src/redux/index';

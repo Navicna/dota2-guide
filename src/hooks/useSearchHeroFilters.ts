@@ -7,7 +7,7 @@ import {
   getHeroAttributeSearchFilter,
 } from '../redux/dota.selectors';
 
-export function useSearchHeroFilters() {
+export default function useSearchHeroFilters() {
   const {dotaHeroes, dotaHeroesLoading} = useDotaGuide();
   const [searchText, setSearchText] = useState('');
   const [filteredDotaHeroes, setFilteredDotaHeroes] = useState(dotaHeroes);

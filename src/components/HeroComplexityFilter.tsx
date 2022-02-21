@@ -2,11 +2,11 @@ import React from 'react';
 import {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {dispatchHeroComplexityFilter} from '../../redux/dota.actions';
-import {ViewBox} from '../../ui';
-import {Diamond} from '../Diamond';
+import {dispatchHeroComplexityFilter} from '../redux/dota.actions';
+import {ViewBox} from '../ui';
+import {Diamond} from './index';
 
-export function HeroComplexityFilter() {
+export default function HeroComplexityFilter() {
   const dispatch = useDispatch();
   const [complexityFilter, setComplexityFilter] = useState(-1);
   const [isActiveFilter, setIsActiveFilter] = useState(false);
