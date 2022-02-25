@@ -13,6 +13,7 @@ target 'Dota2Guide' do
   )
 
   pod 'RNSound', :path => "../node_modules/react-native-sound"
+  pod 'RNSVG', path: '../node_modules/react-native-svg'
 
   target 'Dota2GuideTests' do
     inherit! :complete
