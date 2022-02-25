@@ -12,8 +12,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		214C002627B9D4FD00F317FC /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 214C002227B9D4BB00F317FC /* libRNSound.a */; };
-		214C002827B9D53100F317FC /* dota2theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 214C002727B9D53100F317FC /* dota2theme.mp3 */; };
-		214C003027B9D5B700F317FC /* dota2theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 214C002727B9D53100F317FC /* dota2theme.mp3 */; };
 		2191074627AD7ABC00BA04F7 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073827AD79FF00BA04F7 /* Montserrat-Regular.ttf */; };
 		2191074727AD7ABC00BA04F7 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073C27AD7A0000BA04F7 /* OpenSans-Bold.ttf */; };
 		2191074827AD7ABC00BA04F7 /* Cardo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191073D27AD7A0000BA04F7 /* Cardo-Bold.ttf */; };
@@ -82,7 +80,6 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Dota2Guide/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-Dota2Guide-Dota2GuideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota2Guide-Dota2GuideTests.release.xcconfig"; path = "Target Support Files/Pods-Dota2Guide-Dota2GuideTests/Pods-Dota2Guide-Dota2GuideTests.release.xcconfig"; sourceTree = "<group>"; };
 		214C001D27B9D4BB00F317FC /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
-		214C002727B9D53100F317FC /* dota2theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = dota2theme.mp3; path = ../../../Downloads/dota2theme.mp3; sourceTree = "<group>"; };
 		2191060027AA210D00BA04F7 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		2191060127AA210D00BA04F7 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		2191060227AA210D00BA04F7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -180,7 +177,6 @@
 		219105FD27AA20CE00BA04F7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				214C002727B9D53100F317FC /* dota2theme.mp3 */,
 				2191060327AA210D00BA04F7 /* AntDesign.ttf */,
 				2191060627AA210D00BA04F7 /* Entypo.ttf */,
 				2191060A27AA210D00BA04F7 /* EvilIcons.ttf */,
@@ -366,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				214C003027B9D5B700F317FC /* dota2theme.mp3 in Resources */,
 				2191075127AD7AF500BA04F7 /* AntDesign.ttf in Resources */,
 				2191075227AD7AF500BA04F7 /* Entypo.ttf in Resources */,
 				2191075327AD7AF500BA04F7 /* EvilIcons.ttf in Resources */,
@@ -408,7 +403,6 @@
 				2191074D27AD7ABC00BA04F7 /* Cardo-Italic.ttf in Resources */,
 				2191074A27AD7ABC00BA04F7 /* Cardo-Regular.ttf in Resources */,
 				2191074B27AD7ABC00BA04F7 /* OpenSans-Regular.ttf in Resources */,
-				214C002827B9D53100F317FC /* dota2theme.mp3 in Resources */,
 				2191074E27AD7ABC00BA04F7 /* Montserrat-Bold.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
