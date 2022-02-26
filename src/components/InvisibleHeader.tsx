@@ -10,7 +10,11 @@ export default function InvisibleHeader() {
   const {top: SAFE_AREA_TOP_VALUE} = useSafeAreaInsets();
 
   return (
-    <ViewBox position="absolute" top={SAFE_AREA_TOP_VALUE + 8} left={16}>
+    <ViewBox
+      position="absolute"
+      top={SAFE_AREA_TOP_VALUE + 8}
+      left={16}
+      zIndex={1}>
       <TouchableOpacity onPress={goBack}>
         <ViewBox
           borderColor="white"

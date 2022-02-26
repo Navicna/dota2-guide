@@ -21,8 +21,6 @@ export function HeroesListScreen() {
     return <LoadingScreen />;
   }
 
-  console.tron.log({filteredDotaHeroes});
-
   return (
     <ViewBox bgColor={Colors.darker} alignItems="center" pl={8} flex={1}>
       <FlatList
@@ -42,11 +40,12 @@ export function HeroesListScreen() {
             </TextBox>
           </ViewBox>
         }
-        renderItem={({item}) => {
+        renderItem={({item, index}) => {
           return (
             <HeroPicture
               heroDetails={item}
               filteredDotaHeroes={filteredDotaHeroes}
+              position={index}
             />
           );
         }}
