@@ -863,4 +863,11 @@ export const getHeroSummary = (heroPath: string) =>
       shortDescription:
         'Conhecedor dos segredos que destruiriam a mente de um mero mortal, o Void Spirit emerge de seu Templo Oculto para proteger múltiplas áreas do campo de batalha simultaneamente. Capaz de entrar e sair do plano mortal à vontade, ele facilmente supera os seus adversários para atacá-los de onde ele deseja, invocando os poderes do éter para protegê-lo quando necessário.',
     },
+    primal_beast: {
+      title: 'STOMPS OVER EVERYTHING AND SMASHES ENEMIES INTO MESSY BITS.',
+      history:
+        "Though the deterioration of the Mistwood and its evolution from idyllic expanse to death-filled tanglewild was a slow, wizard-fueled process, most scholars agree the true beginning of the end was marked by the interdimensional arrival of the Primal Beast. A creature hatched into an existence devoid of all feeling but hunger and pain, aeons of carnage shaped the Primal Beast into the apex predator on a planet filled with violent terrors. Desperately banished by would-be masters with failed hopes to control him, the Beast was cast into a new world — one where he could ascend from mere hungry predator into an invasive killing machine with nothing able to stand in his way. For thousands of years, the Mistwood served as massive stomping ground for the Beast's destructive play — and even the feared durana beasts made for tasty snacks. Indeed, there could be no rivals for the Beast's territory, only minor annoyances. Until one such tiny annoyance employed vile trickery to trap the unstoppable Beast in the Gleipnir. There he might have remained subdued for eternity, were it not for the unpredictable powers of the Continuum Device. Now, freed from both Gleipnir and Vault, far afield from the Mistwood, and much closer to inhabited lands, the Beast sets his snout towards new slaughters and the delights of savage destruction — and the paltry fires of civilization will do little to keep this ageless monster at bay.",
+      shortDescription:
+        'Rushing savagely through enemies and allies alike, Primal Beast pounds into battle as one born to raise a ruckus. An unavoidable threat amidst any fray, the Beast can punish attackers and relishes grabbing prey to repeatedly slam them against the ground until nothing but mush remains.',
+    },
   }[heroPath]);
