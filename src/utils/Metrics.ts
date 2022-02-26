@@ -17,7 +17,7 @@ export const iconMusicPositionHelper = (safeAreaValue: number) => {
 export const screenWidth =
   Dimensions.get('screen').width - LATERAL_MARGIN * NUMBER_OF_SIDES;
 
-export function getHeroImageProportion(numColums = 2) {
+export function getHeroImageProportion(numColums = 1) {
   return (
     Dimensions.get('screen').width / numColums - PADDING_VALUE * NUMBER_OF_SIDES
   );

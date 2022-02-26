@@ -48,7 +48,6 @@ export const HeroSummarySection: React.FC<{
     width={screenProportion('FULL_WIDTH')}
     borderTopLeftRadius={8}
     borderTopRightRadius={8}
-    bgColor={Colors.darker}
     mt={-16}
     ph={16}>
     <ViewBox flexDirection="row" alignItems="center" mb={4} mt={8}>
@@ -72,7 +71,7 @@ export const HeroSummarySection: React.FC<{
       {Array(heroComplexity)
         .fill(null)
         .map((_, i) => (
-          <Diamond size={12} key={i} bgColor={'white'} />
+          <Diamond size={12} key={i} actived />
         ))}
     </ViewBox>
     {!!heroSummary && (

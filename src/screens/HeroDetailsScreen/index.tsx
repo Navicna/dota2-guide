@@ -20,6 +20,7 @@ import * as HDS from './styles';
 import {screenProportion} from '../../utils/Metrics';
 
 import {InvisibleHeader} from '../../components';
+import {Images} from '../../assets/image';
 
 type ScreenProps = {
   params: {
@@ -116,15 +117,19 @@ export function HeroDetailsScreen() {
       justifyContent="center">
       <Backdrop />
       <InvisibleHeader />
+
       <ViewBox
-        bgColor={Colors.darker}
-        height={HDS.SCREEN_HEIGHT - HDS.BACKDROP_HEIGHT + 16}
-        width={HDS.SCREEN_WIDTH}
         borderTopLeftRadius={16}
         borderTopRightRadius={16}
         position="absolute"
-        bottom={0}
-      />
+        bottom={0}>
+        <ImageBox
+          height={HDS.SCREEN_HEIGHT - HDS.BACKDROP_HEIGHT + 16}
+          width={HDS.SCREEN_WIDTH}
+          source={{uri: Images.heroCharacterBgUri}}
+          style={{borderTopLeftRadius: 16, borderTopRightRadius: 16}}
+        />
+      </ViewBox>
       {/* <LinearGradient
         colors={[Colors.darker, 'transparent']}
         style={{

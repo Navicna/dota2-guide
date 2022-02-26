@@ -25,17 +25,18 @@ export default function HeroListHeader({
   return (
     <ViewBox
       alignItems="center"
-      pt={SAFE_AREA_TOP_VALUE}
-      height={screenProportion('HEIGHT', 0.22)}
+      pt={SAFE_AREA_TOP_VALUE + 36}
+      pb={24}
+      height={screenProportion('HEIGHT', 0.3)}
       justifyContent="center"
-      width={screenProportion('FULL_WIDTH') - 32}>
-      <TextBox mb={8} fontSize={20}>
+      width={screenProportion('FULL_WIDTH')}>
+      <TextBox mb={14} fontSize={20}>
         {'FILTRAR HERÓIS'}
       </TextBox>
       <ViewBox
         position="absolute"
         top={iconMusicPositionHelper(SAFE_AREA_TOP_VALUE)}
-        right={8}>
+        right={24}>
         <TouchableOpacity
           onPress={() => {
             if (enabledMusic) {
@@ -46,20 +47,24 @@ export default function HeroListHeader({
             setEnabledMusic(!enabledMusic);
           }}>
           <ViewBox opacity={enabledMusic ? 1 : 0.36}>
-            <Icon path={'sound'} />
+            <Icon path={'sound'} size={24} />
           </ViewBox>
         </TouchableOpacity>
       </ViewBox>
 
       {/* Complexity and Attributes filter */}
 
-      <ViewBox flexDirection="row" width={230} justifyContent="space-around">
+      <ViewBox
+        flexDirection="row"
+        width={230}
+        justifyContent="space-around"
+        mb={8}>
         <HeroComplexityFilter />
         <HeroAttributeFilter />
       </ViewBox>
 
       {/* Hero Search Component */}
-      <ViewBox flexDirection="row" marginBottom={16} marginTop={8}>
+      <ViewBox flexDirection="row" mb={8} mt={8}>
         <ViewBox
           width={40}
           height={40}

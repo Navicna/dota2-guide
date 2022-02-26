@@ -11,14 +11,14 @@ export default function HeroComplexityFilter() {
   const [complexityFilter, setComplexityFilter] = useState(-1);
   const [isActiveFilter, setIsActiveFilter] = useState(false);
 
-  function handleDiamondBgColor(index: number) {
+  function handleActiveFilter(index: number) {
     if (!isActiveFilter) {
-      return 'transparent';
+      return false;
     }
     if (complexityFilter === index || complexityFilter > index) {
-      return 'white';
+      return true;
     }
-    return 'transparent';
+    return false;
   }
 
   function handleComplexityHeroFilter(index: number) {
@@ -43,7 +43,7 @@ export default function HeroComplexityFilter() {
         .fill(null)
         .map((_, i) => (
           <TouchableOpacity onPress={() => handleComplexityHeroFilter(i)}>
-            <Diamond key={i} bgColor={handleDiamondBgColor(i)} />
+            <Diamond key={i} actived={handleActiveFilter(i)} />
           </TouchableOpacity>
         ))}
     </ViewBox>
