@@ -5,7 +5,13 @@ import {
   DotaHeroesInterfaceUpdated,
 } from '../interfaces/heroes.interfaces';
 
-import {fetchDotaHeroes} from '../services/heroes.services';
+import {
+  fetchDotaHeroes,
+  fetchHeroAttribute,
+  fetchHeroCharacter,
+  fetchHeroImage,
+} from '../services/heroes.services';
+import {getHeroSummary} from '../utils/HeroSummary';
 import {handleHeroComplexity} from '../utils/String';
 
 interface IDotaGuideContext {
@@ -26,22 +32,27 @@ const DotaGuideProvider: React.FC<{
   const [dotaHeroes, setDotaHeroes] = React.useState([]);
   const [dotaHeroesLoading, setDotaHeroesLoading] = React.useState(false);
 
-  function handleDotaHeroesJSON(
-    data: DotaHeroesInterface[],
-  ): DotaHeroesInterfaceUpdated[] {
+  const handleHeroPath = (path: string) => path.replace('npc_dota_hero_', '');
+
+  function handleDotaHeroesJSON(data: DotaHeroesInterface[]) {
     return data.map(
-      ({attack_type, id, legs, localized_name, name, primary_attr, roles}) => ({
-        id,
-        attackType: attack_type,
-        legs,
-        heroPath: name.replace('npc_dota_hero_', ''),
-        heroName: localized_name,
-        primaryAttr: primary_attr,
-        roles,
-        heroComplexity: handleHeroComplexity(
-          name.replace('npc_dota_hero_', ''),
-        ),
-      }),
+      ({attack_type, id, legs, localized_name, name, primary_attr, roles}) => {
+        const heroPath = handleHeroPath(name);
+        return {
+          id,
+          attackType: attack_type,
+          legs,
+          heroPath: heroPath,
+          heroName: localized_name,
+          primaryAttr: primary_attr,
+          roles,
+          heroComplexity: handleHeroComplexity(heroPath),
+          heroImage: fetchHeroImage(heroPath),
+          heroCharacter: fetchHeroCharacter(heroPath),
+          heroAttribute: fetchHeroAttribute(primary_attr),
+          heroSummary: getHeroSummary(heroPath),
+        };
+      },
     );
   }
 

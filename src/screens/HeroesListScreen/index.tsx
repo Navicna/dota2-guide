@@ -21,6 +21,8 @@ export function HeroesListScreen() {
     return <LoadingScreen />;
   }
 
+  console.tron.log({filteredDotaHeroes});
+
   return (
     <ViewBox bgColor={Colors.darker} alignItems="center" pl={8} flex={1}>
       <FlatList

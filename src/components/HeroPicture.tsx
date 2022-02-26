@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
-import {fetchHeroImage} from '../services/heroes.services';
+
 import {ImageBox} from '../ui';
 import {getHeroImageProportion} from '../utils/Metrics';
 import {defaultShadow} from '../utils/Style';
@@ -20,17 +20,11 @@ export default function HeroPicture({
   filteredDotaHeroes,
 }: HeroPictureProps) {
   const {navigate} = useNavigation();
-  const heroImage = fetchHeroImage(heroDetails.heroPath);
-
-  const heroDetailsUpdated = {
-    ...heroDetails,
-    heroImage,
-  };
 
   function handleNavigate() {
     navigate(
       'HeroDetails' as never,
-      {heroDetailsUpdated, filteredDotaHeroes} as never,
+      {heroDetails, filteredDotaHeroes} as never,
     );
   }
 
@@ -39,7 +33,7 @@ export default function HeroPicture({
       <View style={styles.view}>
         <ImageBox
           source={{
-            uri: heroImage,
+            uri: heroDetails.heroImage,
           }}
           height={PICTURE_WIDTH / 2}
           width={PICTURE_WIDTH}

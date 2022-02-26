@@ -1,6 +1,6 @@
 import {RouteProp, useRoute} from '@react-navigation/core';
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {FlatList, ScrollView, StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {
@@ -11,7 +11,7 @@ import {
   fetchHeroAttribute,
   fetchHeroCharacter,
 } from '../../services/heroes.services';
-import {ViewBox} from '../../ui';
+import {TextBox, ViewBox} from '../../ui';
 
 import {getHeroSummary} from '../../utils/HeroSummary';
 
@@ -25,50 +25,57 @@ import {useCarouselHeroesDetails} from '../../hooks/index';
 
 type ScreenProps = {
   params: {
-    heroDetailsUpdated: DotaHeroesInterfaceUpdated;
+    heroDetails: DotaHeroesInterfaceUpdated;
     filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
   };
 };
 
 export function HeroDetailsScreen() {
   const route = useRoute<RouteProp<ScreenProps, 'params'>>();
-  const heroDetailsUpdated = route.params.heroDetailsUpdated;
+  const heroDetails = route.params.heroDetails;
   const filteredDotaHeroes = route.params.filteredDotaHeroes;
 
-  const {
-    handleHeroCarousel,
-    heroDetails,
-    disableRightChevron,
-    disableLeftChevron,
-  } = useCarouselHeroesDetails(filteredDotaHeroes, heroDetailsUpdated);
-
-  const heroCharacter = fetchHeroCharacter(heroDetails.heroPath);
-  const heroAttribute = fetchHeroAttribute(heroDetails.primaryAttr);
-
-  const heroSummary: HeroSummaryProps | undefined = getHeroSummary(
-    heroDetails.heroPath,
-  );
-  const heroName = handleHeroName(heroDetails.heroName);
+  // const {
+  //   handleHeroCarousel,
+  //   heroDetails,
+  //   disableRightChevron,
+  //   disableLeftChevron,
+  // } = useCarouselHeroesDetails(filteredDotaHeroes, heroDetailsUpdated);
 
   const {top: SAFE_AREA_TOP_VALUE} = useSafeAreaInsets();
+
+  console.tron.log({heroDetails});
 
   return (
     <ScrollView style={styles.scrollview}>
       <ViewBox bgColor={Colors.darker} alignItems="center">
-        <HDS.HeroCharacterHeader
+        <FlatList
+          horizontal
+          pagingEnabled
+          data={filteredDotaHeroes}
+          renderItem={({item}) => {
+            return (
+              <ViewBox>
+                <HDS.HeroCharacter heroCharacter={item.heroCharacter} />
+                <HDS.HeroSummarySection
+                  heroDetails={heroDetails}
+                  heroAttribute={item.heroAttribute}
+                  heroName={item.heroName}
+                  heroSummary={item.heroSummary}
+                  primaryAttr={item.primaryAttr}
+                />
+              </ViewBox>
+            );
+          }}
+        />
+        {/* <HDS.HeroCharacterHeader
           disableLeftChevron={disableLeftChevron}
           disableRightChevron={disableRightChevron}
           heroCharacter={heroCharacter}
           onPressBackward={() => handleHeroCarousel('back')}
           onPressForward={() => handleHeroCarousel('forward')}
           safeAreaValue={SAFE_AREA_TOP_VALUE}
-        />
-        <HDS.HeroSummarySection
-          heroDetails={heroDetails}
-          heroAttribute={heroAttribute}
-          heroName={heroName}
-          heroSummary={heroSummary}
-        />
+        /> */}
       </ViewBox>
     </ScrollView>
   );

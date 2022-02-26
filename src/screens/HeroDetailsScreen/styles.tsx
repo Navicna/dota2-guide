@@ -65,16 +65,20 @@ export const HeroCharacterHeader: React.FC<{
         </TouchableOpacity>
       </ViewBox>
     )}
-
-    <View style={styles.characterContainer}>
-      <ImageBox
-        height={300}
-        width={300}
-        source={{uri: heroCharacter}}
-        resizeMode="contain"
-      />
-    </View>
   </ImageBackground>
+);
+
+export const HeroCharacter: React.FC<{heroCharacter: string}> = ({
+  heroCharacter,
+}) => (
+  <View style={styles.characterContainer}>
+    <ImageBox
+      height={300}
+      width={300}
+      source={{uri: heroCharacter}}
+      resizeMode="contain"
+    />
+  </View>
 );
 
 export const HeroSummarySection: React.FC<{
@@ -82,7 +86,8 @@ export const HeroSummarySection: React.FC<{
   heroAttribute: string;
   heroName: string;
   heroSummary?: HeroSummaryProps;
-}> = ({heroDetails, heroAttribute, heroName, heroSummary}) => (
+  primaryAttr: string;
+}> = ({heroDetails, heroAttribute, heroName, heroSummary, primaryAttr}) => (
   <ViewBox
     flex={1}
     width={screenProportion('FULL_WIDTH')}
@@ -94,7 +99,7 @@ export const HeroSummarySection: React.FC<{
     <ViewBox flexDirection="row" alignItems="center" mb={8} mt={16}>
       <ImageBox source={{uri: heroAttribute}} height={30} width={30} />
       <TextBox fontSize={20} ml={8} fontStyle="semi_bold">
-        {getAttribute(heroDetails.primaryAttr)?.toUpperCase()}
+        {getAttribute(primaryAttr)?.toUpperCase()}
       </TextBox>
     </ViewBox>
     <TextBox fontSize={40} fontStyle="bold">

@@ -12,8 +12,11 @@ target 'Dota2Guide' do
     :hermes_enabled => false
   )
 
+
+  # Pods
   pod 'RNSound', :path => "../node_modules/react-native-sound"
   pod 'RNSVG', path: '../node_modules/react-native-svg'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   target 'Dota2GuideTests' do
     inherit! :complete
