@@ -45,7 +45,9 @@ export default function HeroListHeader({
             }
             setEnabledMusic(!enabledMusic);
           }}>
-          <Icon path={enabledMusic ? 'music_on' : 'music_off'} />
+          <ViewBox opacity={enabledMusic ? 1 : 0.36}>
+            <Icon path={'sound'} />
+          </ViewBox>
         </TouchableOpacity>
       </ViewBox>
 

@@ -13,18 +13,20 @@ const PICTURE_WIDTH = getHeroImageProportion();
 type HeroPictureProps = {
   heroDetails: DotaHeroesInterfaceUpdated;
   filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
+  position: number;
 };
 
 export default function HeroPicture({
   heroDetails,
   filteredDotaHeroes,
+  position,
 }: HeroPictureProps) {
   const {navigate} = useNavigation();
 
   function handleNavigate() {
     navigate(
       'HeroDetails' as never,
-      {heroDetails, filteredDotaHeroes} as never,
+      {heroDetails, filteredDotaHeroes, position} as never,
     );
   }
 

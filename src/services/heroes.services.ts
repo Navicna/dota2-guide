@@ -5,7 +5,7 @@ export const fetchDotaHeroes = async () =>
   axios.get('https://api.opendota.com/api/heroes');
 
 export const fetchHeroImage = (heroPath: string) =>
-  `https://cdn.dota2.com/apps/dota2/images/heroes/${heroPath}_full.png`;
+  `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${heroPath}.png`;
 
 export const fetchHeroCharacter = (heroPath: string) =>
   `https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/${heroPath}.png`;

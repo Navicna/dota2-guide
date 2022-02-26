@@ -3,6 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const getIcons = (path: string, size = 32, color = 'white') =>
   ({
@@ -14,6 +15,7 @@ const getIcons = (path: string, size = 32, color = 'white') =>
     back_screen: <AntDesign name="back" size={size} color={color} />,
     music_on: <MaterialIcons name="music-note" size={size} color={color} />,
     music_off: <MaterialIcons name="music-off" size={size} color={color} />,
+    sound: <Entypo name="sound" size={size} color={color} />,
   }[path]);
 
 export default function Icon({
