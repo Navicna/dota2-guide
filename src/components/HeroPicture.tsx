@@ -8,7 +8,7 @@ import {ImageBox} from '../ui';
 import {getHeroImageProportion} from '../utils/Metrics';
 import {defaultShadow} from '../utils/Style';
 
-const PICTURE_WIDTH = getHeroImageProportion();
+export const PICTURE_WIDTH = getHeroImageProportion();
 
 type HeroPictureProps = {
   heroDetails: DotaHeroesInterfaceUpdated;
@@ -37,7 +37,7 @@ export default function HeroPicture({
           source={{
             uri: heroDetails.heroImage,
           }}
-          height={PICTURE_WIDTH / 2}
+          height={PICTURE_WIDTH / 3.4}
           width={PICTURE_WIDTH}
           mb={8}
           mr={8}
