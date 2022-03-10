@@ -60,7 +60,9 @@ const DotaGuideProvider: React.FC<{
     setDotaHeroesLoading(true);
     try {
       const response = await fetchDotaHeroes();
+      console.log({response});
       if (response) {
+        console.log('chegou');
         const {data} = response;
 
         const dotaHeroesUpdated = handleDotaHeroesJSON(data);
@@ -68,6 +70,7 @@ const DotaGuideProvider: React.FC<{
         setDotaHeroes(dotaHeroesUpdated);
       }
     } catch (e) {
+      console.log({e});
       return null;
     } finally {
       setDotaHeroesLoading(false);

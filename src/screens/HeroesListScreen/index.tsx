@@ -28,9 +28,11 @@ export function HeroesListScreen() {
   const {navigate} = useNavigation();
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
-  if (dotaHeroesLoading) {
-    return <LoadingScreen />;
-  }
+  console.log({filteredDotaHeroes});
+
+  // if (dotaHeroesLoading) {
+  //   return <LoadingScreen />;
+  // }
 
   function handleNavigate(position: number) {
     navigate('HeroDetails' as never, {filteredDotaHeroes, position} as never);

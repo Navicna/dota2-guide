@@ -7,8 +7,6 @@ import {HeroesListScreen} from '../screens/HeroesListScreen';
 import {HeroDetailsScreen} from '../screens/HeroDetailsScreen';
 import {SplashScreen} from '../screens/SplashScreen/SplashScreen';
 
-import AnimatonsProjects from '../projects/index';
-
 import {StatusBar} from 'react-native';
 
 import {isReadyRef, navigationRef} from './NavigationService';
@@ -33,11 +31,10 @@ export default function AppNavigation() {
             screenOptions={{
               headerShown: false,
             }}
-            initialRouteName="Projects">
+            initialRouteName="Splash">
             <Stack.Screen name="Splash" component={SplashScreen} />
             <Stack.Screen name="HeroList" component={HeroesListScreen} />
             <Stack.Screen name="HeroDetails" component={HeroDetailsScreen} />
-            <Stack.Screen name="Projects" component={AnimatonsProjects} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

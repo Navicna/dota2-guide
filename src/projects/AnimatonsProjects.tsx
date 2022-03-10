@@ -6,6 +6,9 @@ import {ImageBox, ViewBox} from '../ui';
 import {screenProportion} from '../utils/Metrics';
 import MaskedView from '@react-native-masked-view/masked-view';
 import {Svg, Rect} from 'react-native-svg';
+import LinearGradient from 'react-native-linear-gradient';
+import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
@@ -15,6 +18,7 @@ const CARD_HEIGHT = screenProportion('HEIGHT', 0.6);
 const SPACING = 8;
 
 const SCREEN_WIDTH = screenProportion('FULL_WIDTH');
+const SCREEN_HEIGHT = screenProportion('FULL_HEIGHT');
 
 const SPACER_ITEM_SIZE = (SCREEN_WIDTH - ITEM_SIZE) / 2;
 
@@ -23,18 +27,16 @@ const BACKDROP_HEIGHT = screenProportion('HEIGHT', 0.3);
 export default function AnimatonsProjects() {
   const {dotaHeroes} = useDotaGuide();
 
-  console.tron.log({dotaHeroes});
-
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
-  const Backdrop = ({scrollX}) => {
+  const Backdrop = () => {
     return (
       <ViewBox
         position="absolute"
         top={0}
         width={SCREEN_WIDTH}
         height={BACKDROP_HEIGHT}>
-        {dotaHeroes.map((item, index) => {
+        {dotaHeroes.map((item: DotaHeroesInterfaceUpdated, index: number) => {
           const inputRange = [(index - 1) * ITEM_SIZE, index * ITEM_SIZE];
           const translateX = scrollX.interpolate({
             inputRange,
@@ -47,19 +49,19 @@ export default function AnimatonsProjects() {
                   viewBox={`0 0 ${SCREEN_WIDTH} ${screenProportion(
                     'FULL_HEIGHT',
                   )}`}
-                  height={screenProportion('FULL_HEIGHT')}
+                  height={SCREEN_HEIGHT}
                   width={SCREEN_WIDTH}
                   style={{transform: [{translateX}]}}>
                   <Rect
                     x="0"
                     y="0"
                     width={SCREEN_WIDTH}
-                    height={screenProportion('FULL_HEIGHT')}
+                    height={SCREEN_HEIGHT}
                     fill="red"
                   />
                 </AnimatedSvg>
               }
-              style={{position: 'absolute'}}>
+              style={styles.svg}>
               <ImageBox
                 width={SCREEN_WIDTH}
                 height={BACKDROP_HEIGHT}
@@ -69,57 +71,6 @@ export default function AnimatonsProjects() {
             </MaskedView>
           );
         })}
-        {/* <FlatList
-          data={dotaHeroes}
-          // initialNumToRender={50}
-          maxToRenderPerBatch={20}
-          renderItem={({item, index}) => {
-            const inputRange = [(index - 1) * ITEM_SIZE, index * ITEM_SIZE];
-            const translateX = scrollX.interpolate({
-              inputRange,
-              outputRange: [-SCREEN_WIDTH, 0],
-            });
-            // console.warn(item.heroName);
-            return (
-              <MaskedView
-                maskElement={
-                  <AnimatedSvg
-                    viewBox={`0 0 ${SCREEN_WIDTH} ${screenProportion(
-                      'FULL_HEIGHT',
-                    )}`}
-                    height={screenProportion('FULL_HEIGHT')}
-                    width={SCREEN_WIDTH}
-                    style={{transform: [{translateX}]}}>
-                    <Rect
-                      x="0"
-                      y="0"
-                      width={SCREEN_WIDTH}
-                      height={screenProportion('FULL_HEIGHT')}
-                      fill="red"
-                    />
-                  </AnimatedSvg>
-                }
-                style={{position: 'absolute'}}>
-                <ImageBox
-                  width={SCREEN_WIDTH}
-                  height={BACKDROP_HEIGHT}
-                  source={{uri: item.heroImage}}
-                  resizeMode="cover"
-                />
-              </MaskedView>
-            );
-          }}
-        /> */}
-
-        {/* <LinearGradient
-          colors={['transparent', 'white']}
-          style={{
-            width: SCREEN_WIDTH,
-            height: BACKDROP_HEIGHT,
-            position: 'absolute',
-            bottom: 0,
-          }}
-        /> */}
       </ViewBox>
     );
   };
@@ -130,7 +81,16 @@ export default function AnimatonsProjects() {
       bgColor="gray"
       alignItems="center"
       justifyContent="center">
-      <Backdrop scrollX={scrollX} />
+      <Backdrop />
+      <ViewBox
+        bgColor={Colors.darker}
+        height={SCREEN_HEIGHT - BACKDROP_HEIGHT + 28}
+        width={SCREEN_WIDTH}
+        borderTopLeftRadius={34}
+        borderTopRightRadius={34}
+        position="absolute"
+        bottom={0}
+      />
       <Animated.FlatList
         data={dotaHeroes}
         keyExtractor={item => item.heroPath}
@@ -154,7 +114,7 @@ export default function AnimatonsProjects() {
 
           const translateY = scrollX.interpolate({
             inputRange,
-            outputRange: [0, -50, 0],
+            outputRange: [0, -120, 0],
           });
 
           return (
@@ -175,6 +135,14 @@ export default function AnimatonsProjects() {
           );
         }}
       />
+
+      {/* <LinearGradient
+        colors={['white', 'transparent']}
+        style={{
+          width: SCREEN_WIDTH,
+          height: BACKDROP_HEIGHT,
+        }}
+      /> */}
     </ViewBox>
   );
 }
@@ -189,5 +157,8 @@ const styles = StyleSheet.create({
   },
   flatlistContainer: {
     alignItems: 'center',
+  },
+  svg: {
+    position: 'absolute',
   },
 });
