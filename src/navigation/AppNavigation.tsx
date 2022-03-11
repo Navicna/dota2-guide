@@ -33,7 +33,7 @@ export default function AppNavigation() {
             screenOptions={{
               headerShown: false,
             }}
-            initialRouteName="Projects">
+            initialRouteName="Splash">
             <Stack.Screen name="Splash" component={SplashScreen} />
             <Stack.Screen name="HeroList" component={HeroesListScreen} />
             <Stack.Screen name="HeroDetails" component={HeroDetailsScreen} />

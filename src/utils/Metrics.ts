@@ -19,7 +19,8 @@ export const screenWidth =
 
 export function getHeroImageProportion(numColums = 1) {
   return (
-    Dimensions.get('screen').width / numColums - PADDING_VALUE * NUMBER_OF_SIDES
+    Dimensions.get('screen').width / numColums -
+    PADDING_VALUE * 2 * NUMBER_OF_SIDES
   );
 }
 

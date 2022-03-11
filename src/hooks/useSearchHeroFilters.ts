@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
+import {Animated} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useDotaGuide} from '../context/DotaGuideContext';
 import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
@@ -6,6 +7,8 @@ import {
   getHeroComplexitySearchFilter,
   getHeroAttributeSearchFilter,
 } from '../redux/dota.selectors';
+
+const ANIMATE_TIMING = 100;
 
 export default function useSearchHeroFilters() {
   const {dotaHeroes, dotaHeroesLoading} = useDotaGuide();
@@ -19,8 +22,27 @@ export default function useSearchHeroFilters() {
   const hasAttributeSearchFilter = heroAttibuteSearchFilter !== '';
   const hasTextSearchFilter = searchText !== '';
 
+  const fadeAnimation = useRef(new Animated.Value(1)).current;
+
   function handleSearchHeroes(text: string) {
     setSearchText(text);
+  }
+
+  function handleFlatlistFadeTransition(data: any) {
+    Animated.timing(fadeAnimation, {
+      toValue: 0,
+      duration: ANIMATE_TIMING,
+    } as never).start(({finished}) => {
+      if (finished) {
+        setFilteredDotaHeroes(data);
+        setTimeout(() => {
+          Animated.timing(fadeAnimation, {
+            toValue: 1,
+            duration: ANIMATE_TIMING,
+          } as never).start();
+        }, ANIMATE_TIMING);
+      }
+    });
   }
 
   useEffect(() => {
@@ -78,9 +100,9 @@ export default function useSearchHeroFilters() {
       hasComplexitySearchFilter ||
       hasAttributeSearchFilter
     ) {
-      setFilteredDotaHeroes(filterHeroes);
+      handleFlatlistFadeTransition(filterHeroes);
     } else {
-      setFilteredDotaHeroes(dotaHeroes);
+      handleFlatlistFadeTransition(dotaHeroes);
     }
   }, [heroComplexitySearchFilter, heroAttibuteSearchFilter, searchText]);
 
@@ -89,5 +111,6 @@ export default function useSearchHeroFilters() {
     searchText,
     filteredDotaHeroes,
     dotaHeroesLoading,
+    fadeAnimation,
   };
 }
