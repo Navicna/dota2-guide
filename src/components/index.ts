@@ -4,6 +4,7 @@ import HeroComplexityFilter from './HeroComplexityFilter';
 import HeroListHeader from './HeroListHeader';
 import HeroPicture from './HeroPicture';
 import InvisibleHeader from './InvisibleHeader';
+import DotaModal from './Modal';
 
 export {
   Diamond,
@@ -12,4 +13,5 @@ export {
   HeroListHeader,
   HeroPicture,
   InvisibleHeader,
+  DotaModal,
 };
