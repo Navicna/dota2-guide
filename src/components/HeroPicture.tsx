@@ -1,25 +1,32 @@
 import {useNavigation} from '@react-navigation/core';
 
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, Animated} from 'react-native';
 import {DotaHeroesInterfaceUpdated} from '../interfaces/heroes.interfaces';
 
 import {ImageBox} from '../ui';
 import {getHeroImageProportion} from '../utils/Metrics';
-import {defaultShadow} from '../utils/Style';
 
 export const PICTURE_WIDTH = getHeroImageProportion();
+export const PICTURE_HEIGHT = PICTURE_WIDTH / 2.5;
+
+export const PICTURE_MARGIN_BOTTOM = 12;
 
 type HeroPictureProps = {
   heroDetails: DotaHeroesInterfaceUpdated;
   filteredDotaHeroes: DotaHeroesInterfaceUpdated[];
   position: number;
+  animatedViewStyle: {
+    opacity: any;
+    scale: any;
+  };
 };
 
 export default function HeroPicture({
   heroDetails,
   filteredDotaHeroes,
   position,
+  animatedViewStyle,
 }: HeroPictureProps) {
   const {navigate} = useNavigation();
 
@@ -32,23 +39,22 @@ export default function HeroPicture({
 
   return (
     <TouchableOpacity onPress={handleNavigate}>
-      <View style={styles.view}>
+      <Animated.View
+        style={{
+          opacity: animatedViewStyle.opacity,
+          transform: [{scale: animatedViewStyle.scale}],
+        }}>
         <ImageBox
           source={{
             uri: heroDetails.heroImage,
           }}
-          height={PICTURE_WIDTH / 3.4}
+          height={PICTURE_HEIGHT}
           width={PICTURE_WIDTH}
-          mb={8}
-          mr={8}
+          mb={PICTURE_MARGIN_BOTTOM}
+          ml={8}
+          borderRadius={4}
         />
-      </View>
+      </Animated.View>
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  view: {
-    ...defaultShadow,
-  },
-});

@@ -26,8 +26,7 @@ export default function HeroListHeader({
     <ViewBox
       alignItems="center"
       pt={SAFE_AREA_TOP_VALUE + 36}
-      pb={24}
-      height={screenProportion('HEIGHT', 0.3)}
+      height={screenProportion('HEIGHT', 0.26)}
       justifyContent="center"
       width={screenProportion('FULL_WIDTH')}>
       <TextBox mb={14} fontSize={20}>
