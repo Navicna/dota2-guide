@@ -13,6 +13,7 @@ import {StatusBar} from 'react-native';
 
 import {isReadyRef, navigationRef} from './NavigationService';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {DotaModal} from '../components';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,13 @@ export default function AppNavigation() {
             <Stack.Screen name="HeroList" component={HeroesListScreen} />
             <Stack.Screen name="HeroDetails" component={HeroDetailsScreen} />
             <Stack.Screen name="Projects" component={AnimatonsProjects} />
+            <Stack.Group
+              screenOptions={{
+                presentation: 'transparentModal',
+                gestureEnabled: true,
+              }}>
+              <Stack.Screen name="Modal" component={DotaModal} />
+            </Stack.Group>
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

@@ -51,7 +51,6 @@ export default function HeroPicture({
           height={PICTURE_HEIGHT}
           width={PICTURE_WIDTH}
           mb={PICTURE_MARGIN_BOTTOM}
-          ml={8}
           borderRadius={4}
         />
       </Animated.View>

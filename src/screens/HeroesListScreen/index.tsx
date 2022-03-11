@@ -42,7 +42,7 @@ export function HeroesListScreen() {
   return (
     <ImageBackground
       style={styles.imageBackgroundStyle}
-      source={{uri: Images.heroCharacterBgUri}}>
+      source={Images.heroCharacterBgUri}>
       <HeroListHeader
         searchText={searchText}
         onChangeText={text => handleSearchHeroes(text)}

@@ -1,17 +1,14 @@
-import {RouteProp, useRoute} from '@react-navigation/core';
+import {RouteProp, useRoute, useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {StyleSheet, Animated} from 'react-native';
+import {StyleSheet, Animated, TouchableOpacity} from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import {Svg, Rect} from 'react-native-svg';
-import {useFocusEffect} from '@react-navigation/native';
 
 // import LinearGradient from 'react-native-linear-gradient';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 import {DotaHeroesInterfaceUpdated} from '../../interfaces/heroes.interfaces';
 
-import {ViewBox, ImageBox} from '../../ui';
+import {ViewBox, ImageBox, TextBox} from '../../ui';
 
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
@@ -33,6 +30,7 @@ type ScreenProps = {
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 export function HeroDetailsScreen() {
+  const {navigate} = useNavigation();
   const route = useRoute<RouteProp<ScreenProps, 'params'>>();
   const filteredDotaHeroes = route.params.filteredDotaHeroes;
   const heroPositionArray = route.params.position;
@@ -50,11 +48,9 @@ export function HeroDetailsScreen() {
     index,
   });
 
-  useFocusEffect(
-    React.useCallback(() => {
-      scrollToIndex(heroPositionArray);
-    }, [heroPositionArray]),
-  );
+  React.useEffect(() => {
+    scrollToIndex(heroPositionArray);
+  }, [heroPositionArray]);
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -126,8 +122,8 @@ export function HeroDetailsScreen() {
         <ImageBox
           height={HDS.SCREEN_HEIGHT - HDS.BACKDROP_HEIGHT + 16}
           width={HDS.SCREEN_WIDTH}
-          source={{uri: Images.heroCharacterBgUri}}
-          style={{borderTopLeftRadius: 16, borderTopRightRadius: 16}}
+          source={Images.heroCharacterBgUri}
+          style={styles.heroCharacter}
         />
       </ViewBox>
       {/* <LinearGradient
@@ -192,6 +188,9 @@ export function HeroDetailsScreen() {
                     heroSummary={item.heroSummary}
                     primaryAttr={item.primaryAttr}
                   />
+                  <TouchableOpacity onPress={() => navigate('Modal' as never)}>
+                    <TextBox>Visualizar detalhes</TextBox>
+                  </TouchableOpacity>
                 </Animated.View>
               </ViewBox>
             </>
@@ -217,4 +216,5 @@ const styles = StyleSheet.create({
   svg: {
     position: 'absolute',
   },
+  heroCharacter: {borderTopLeftRadius: 16, borderTopRightRadius: 16},
 });
