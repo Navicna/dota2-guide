@@ -1,3 +1,28 @@
 # Dota 2 Guide
 
-![image](https://user-images.githubusercontent.com/52223211/166819771-a7dfb2bc-d598-4759-a486-a4ff83b140f1.png)
+### Tools/Tecnologies
+
+- React-Native
+- React Navigation
+- Redux
+- Typescript
+- Yarn
+- NodeJS
+
+### For Dota 2 players 
+
+- Show all heroes
+- Search filter heroes 
+- Music entrance scene
+- Showing hero details
+- Carousel of heroes
+
+### Geting started
+
+```
+yarn install && cd ios && pod install && cd .. && yarn ios
+```
+
+### Enjoy ;)
+
+![image](https://user-images.githubusercontent.com/52223211/166822468-7b3ab791-9bf8-41cc-9281-cc6a2c806d49.png)
