@@ -1,8 +1,8 @@
 # Dota 2 Guide
 
-### Tools/Tecnologies
+### Tools/Technologies
 
-- React-Native
+- React Native
 - React Navigation
 - Redux
 - Typescript
@@ -17,7 +17,7 @@
 - Showing hero details
 - Carousel of heroes
 
-### Geting started
+### Getting started
 
 ```
 yarn install && cd ios && pod install && cd .. && yarn ios
